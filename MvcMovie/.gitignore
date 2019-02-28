@@ -1,0 +1,4 @@
+syntax: glob
+MvcMovie/.vs/
+MvcMovie/obj/
+MvcMovie/bin/
