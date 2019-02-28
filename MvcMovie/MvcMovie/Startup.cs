@@ -31,12 +31,7 @@ namespace MvcMovie
             services.AddDbContext<MvcMovieContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("Default")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
-            {
-                options.Cookies.ApplicationCookie.AccessDeniedPath = "/accessdenied";
-                options.Cookies.ApplicationCookie.LoginPath = "/login";
-                options.Cookies.ApplicationCookie.LoginPath = "/logout";
-            })
+            services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
         .AddEntityFrameworkStores<MvcMovieContext/*, Guid*/>()
         .AddDefaultTokenProviders();
         }
