@@ -35,6 +35,7 @@ namespace MvcMovie
         .AddEntityFrameworkStores<MvcMovieContext/*, Guid*/>()
         .AddDefaultTokenProviders();
 
+            services.AddScoped<Data.SeedData>();
 
             services.ConfigureApplicationCookie(options =>
             {
@@ -59,7 +60,7 @@ namespace MvcMovie
 
             app.UseStaticFiles();
 
-            app.UseIdentity();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
