@@ -14,17 +14,32 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
-using MvcMovie;
+using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #line 2 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie;
+
+#line default
+#line hidden
+#line 3 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
 using MvcMovie.Models;
 
 #line default
 #line hidden
+#line 4 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie.Models.AccountViewModels;
+
+#line default
+#line hidden
+#line 5 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie.Models.ManageViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6dd75c97df7c49b5cacd29a4216cc98c12a315d4", @"/Views/Movies/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e413b772b8bc36dd8eb3031e3b02c7de6bbbb46", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e230dfb742f77776b61ac8ddaba31f15e40b5160", @"/Views/_ViewImports.cshtml")]
     public class Views_Movies_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MvcMovie.Models.Movie>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -144,7 +159,7 @@ using MvcMovie.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(874, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6dd75c97df7c49b5cacd29a4216cc98c12a315d47293", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6dd75c97df7c49b5cacd29a4216cc98c12a315d47747", async() => {
                 BeginContext(920, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -179,7 +194,7 @@ using MvcMovie.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(936, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6dd75c97df7c49b5cacd29a4216cc98c12a315d49602", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6dd75c97df7c49b5cacd29a4216cc98c12a315d410056", async() => {
                 BeginContext(958, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

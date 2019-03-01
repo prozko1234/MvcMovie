@@ -14,17 +14,32 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
-using MvcMovie;
+using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #line 2 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie;
+
+#line default
+#line hidden
+#line 3 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
 using MvcMovie.Models;
 
 #line default
 #line hidden
+#line 4 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie.Models.AccountViewModels;
+
+#line default
+#line hidden
+#line 5 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie.Models.ManageViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"583387379a597938339285f5a623245873b0a91c", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e413b772b8bc36dd8eb3031e3b02c7de6bbbb46", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e230dfb742f77776b61ac8ddaba31f15e40b5160", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

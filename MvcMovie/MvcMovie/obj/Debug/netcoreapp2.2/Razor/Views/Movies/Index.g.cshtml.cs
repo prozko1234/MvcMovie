@@ -14,17 +14,32 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
-using MvcMovie;
+using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #line 2 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie;
+
+#line default
+#line hidden
+#line 3 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
 using MvcMovie.Models;
 
 #line default
 #line hidden
+#line 4 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie.Models.AccountViewModels;
+
+#line default
+#line hidden
+#line 5 "D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\Views\_ViewImports.cshtml"
+using MvcMovie.Models.ManageViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7d7e700ceff8809c9fa1f3526a54918da09d77c6", @"/Views/Movies/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e413b772b8bc36dd8eb3031e3b02c7de6bbbb46", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e230dfb742f77776b61ac8ddaba31f15e40b5160", @"/Views/_ViewImports.cshtml")]
     public class Views_Movies_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MvcMovie.Models.MovieGenreViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -71,7 +86,7 @@ using MvcMovie.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(116, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c65841", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c66295", async() => {
                 BeginContext(139, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -93,7 +108,7 @@ using MvcMovie.Models;
             WriteLiteral("\r\n</p>\r\n");
             EndContext();
             BeginContext(161, 194, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c67224", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c67678", async() => {
                 BeginContext(223, 125, true);
                 WriteLiteral("\r\n    <p>\r\n        Title: <input type=\"text\" name=\"SearchString\">\r\n        <input type=\"submit\" value=\"Filter\" />\r\n    </p>\r\n");
                 EndContext();
@@ -202,7 +217,7 @@ using MvcMovie.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1413, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c612238", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c612692", async() => {
                 BeginContext(1458, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -237,7 +252,7 @@ using MvcMovie.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1486, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c614573", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c615027", async() => {
                 BeginContext(1534, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -272,7 +287,7 @@ using MvcMovie.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1565, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c616914", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7e700ceff8809c9fa1f3526a54918da09d77c617368", async() => {
                 BeginContext(1612, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

@@ -1,11 +1,16 @@
-﻿using Microsoft.AspNetCore;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
-using Microsoft.EntityFrameworkCore;
+using MvcMovie.Data;
 using MvcMovie.Models;
-using MvcMovie;
 
 namespace MvcMovie
 {
@@ -13,6 +18,7 @@ namespace MvcMovie
     {
         public static void Main(string[] args)
         {
+            BuildWebHost(args).Run();
             var host = CreateWebHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
@@ -21,7 +27,7 @@ namespace MvcMovie
 
                 try
                 {
-                    var context = services.GetRequiredService<MvcMovieContext>();
+                    var context = services.GetRequiredService<ApplicationDbContext>();
                     context.Database.Migrate();
                     SeedData.Initialize(services);
                 }
@@ -36,7 +42,12 @@ namespace MvcMovie
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+          WebHost.CreateDefaultBuilder(args)
+              .UseStartup<Startup>();
+
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .Build();
     }
 }

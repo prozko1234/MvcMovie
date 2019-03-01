@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
+using MvcMovie.Data;
 using MvcMovie.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
-//using Microsoft.AspNetCore.Session;
+using MvcMovie.Services;
 
 namespace MvcMovie
 {
-    public class Startup
+    public class    Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -26,32 +26,27 @@ namespace MvcMovie
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("Default")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
+
             services.AddMvc();
-
-            services.AddDbContext<MvcMovieContext>(options =>
-                    options.UseNpgsql(Configuration.GetConnectionString("Default")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
-        .AddEntityFrameworkStores<MvcMovieContext/*, Guid*/>()
-        .AddDefaultTokenProviders();
-
-            services.AddScoped<Data.SeedData>();
-
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.LoginPath = "/accesdenied";
-                options.LogoutPath = "/login";
-                options.AccessDeniedPath = "/logout";
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -68,7 +63,6 @@ namespace MvcMovie
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            Data.SeedData.Run(app.ApplicationServices).Wait();
         }
     }
 }
