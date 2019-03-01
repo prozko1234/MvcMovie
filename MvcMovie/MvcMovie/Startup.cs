@@ -34,6 +34,14 @@ namespace MvcMovie
             services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
         .AddEntityFrameworkStores<MvcMovieContext/*, Guid*/>()
         .AddDefaultTokenProviders();
+
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/accesdenied";
+                options.LogoutPath = "/login";
+                options.AccessDeniedPath = "/logout";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +67,7 @@ namespace MvcMovie
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            Data.SeedData.Run(app.ApplicationServices).Wait();
         }
     }
 }
