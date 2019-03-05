@@ -11,6 +11,9 @@
 </p>
 <form asp-controller="Movies" asp-action="Index" method="get">
     <p>
+        Genres: <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
         Title: <input type="text" name="SearchString">
         <input type="submit" value="Filter" />
     </p>
@@ -19,16 +22,16 @@
     <thead>
         <tr>
                 <th>
-                    Title
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParam"]">Title</a>
                 </th>
                 <th>
-                    ReleaseDate
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["RelDateParam"]">Release Date</a>
                 </th>
                 <th>
-                    Genre
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["GenreParam"]">Genre</a>
                 </th>
                 <th>
-                    Price
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceParam"]">Price</a>
                 </th>
                 <th>
                     Rating
