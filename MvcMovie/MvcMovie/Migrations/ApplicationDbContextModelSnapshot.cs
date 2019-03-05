@@ -188,6 +188,8 @@ namespace MvcMovie.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<long>("Quantity");
+
                     b.Property<string>("Rating")
                         .IsRequired()
                         .HasMaxLength(5);
