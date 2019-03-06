@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +15,7 @@ namespace MvcMovie.Controllers
 {   
     public class MoviesController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
 
         public MoviesController(ApplicationDbContext context)
@@ -28,6 +31,8 @@ namespace MvcMovie.Controllers
             string sortOrder, 
             int? page)
         {
+            var userStore = new UserStore<ApplicationUser>(_context);
+            var roleStore = new RoleStore<IdentityRole>(_context);
 
             ViewData["CurrentSort"] = sortOrder;
             ViewData["TitleSortParam"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
@@ -97,11 +102,16 @@ namespace MvcMovie.Controllers
             };
 
 
-            
-
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    return View("AdminIndex",movieGenreVM);
+                }
+            }
             return View(movieGenreVM);
         }
-
+        
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -124,7 +134,7 @@ namespace MvcMovie.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
-            return View();
+            return View("AdminIndex");
         }
 
         // POST: Movies/Create

@@ -28,6 +28,7 @@ namespace MvcMovie
             var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
             IdentityResult roleResult;
+
             //Adding Admin Role
             var roleCheck = await RoleManager.RoleExistsAsync("Admin");
             if (!roleCheck)
@@ -60,8 +61,13 @@ namespace MvcMovie
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("OnlyAdminAccess", policy => policy.RequireRole("Admin"));
+            });
+
+        // Add application services.
+        services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
         }
