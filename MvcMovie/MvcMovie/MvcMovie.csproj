@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-MvcMovie-E7C7783D-1711-4AAB-99E7-1AF26001029B</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20190307082635_OrderDetails1.cs" />
+    <Compile Remove="Migrations\20190307082635_OrderDetails1.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.2" />

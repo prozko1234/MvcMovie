@@ -40,7 +40,7 @@ namespace MvcMovie.Controllers
             ViewData["GenreParam"] = sortOrder == "Genre" ? "Genre_desc":"Genre";
             ViewData["PriceParam"] = sortOrder == "Price" ? "Price_desc" : "Price";
             ViewData["CurrentFilter"] = searchString;
-            
+
             if (searchString != null)
             {
                 page = 1;

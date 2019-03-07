@@ -205,6 +205,31 @@ namespace MvcMovie.Migrations
                     b.ToTable("Movie");
                 });
 
+            modelBuilder.Entity("MvcMovie.Models.OrderDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("ExactReturnDate");
+
+                    b.Property<int>("MovieID");
+
+                    b.Property<DateTime>("RentDate");
+
+                    b.Property<DateTime>("ReturnDate");
+
+                    b.Property<string>("UserId")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OrderDetails");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -245,6 +270,19 @@ namespace MvcMovie.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.HasOne("MvcMovie.Models.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.OrderDetails", b =>
+                {
+                    b.HasOne("MvcMovie.Models.Movie", "Movie")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("MovieID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MvcMovie.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

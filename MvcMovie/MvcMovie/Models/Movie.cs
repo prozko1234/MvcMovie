@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -33,6 +34,8 @@ namespace MvcMovie.Models
 
         [Required]
         public uint Quantity { get; set; }
+
+        public ICollection<OrderDetails> OrderDetails { get; set; }
     }
-    
+
 }
