@@ -124,4 +124,8 @@ D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.View
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.dll
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.pdb
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.csproj.CopyComplete
-D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\AdminIndex.g.cshtml.cs
+D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Create.g.cshtml.cs
+D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Delete.g.cshtml.cs
+D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Details.g.cshtml.cs
+D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Edit.g.cshtml.cs
+D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Index.g.cshtml.cs

@@ -31,9 +31,6 @@ namespace MvcMovie.Controllers
             string sortOrder, 
             int? page)
         {
-            var userStore = new UserStore<ApplicationUser>(_context);
-            var roleStore = new RoleStore<IdentityRole>(_context);
-
             ViewData["CurrentSort"] = sortOrder;
             ViewData["TitleSortParam"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewData["RelDateParam"] = sortOrder == "Release Date" ? "RelDate_desc" : "Release Date";
@@ -102,13 +99,13 @@ namespace MvcMovie.Controllers
             };
 
 
-            if (User.Identity.IsAuthenticated)
-            {
-                if (User.IsInRole("Admin"))
-                {
-                    return View("AdminIndex",movieGenreVM);
-                }
-            }
+            //if (User.Identity.IsAuthenticated)
+            //{
+            //    if (User.IsInRole("Admin"))
+            //    {
+            //        return View("AdminIndex",movieGenreVM);
+            //    }
+            //}
             return View(movieGenreVM);
         }
         
