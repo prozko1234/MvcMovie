@@ -66,6 +66,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
+            <td>
+                <a asp-controller="Rent" asp-action="Index"  asp-route-movieId="@item.Id"> Rent </a>
+            </td>
         </tr>
         }
     </tbody>
@@ -82,6 +85,7 @@
    class="btn btn-default @prevDisabled">
     Previous
 </a>
+
 <a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
    asp-route-page="@(Model.Movies.PageIndex + 1)"

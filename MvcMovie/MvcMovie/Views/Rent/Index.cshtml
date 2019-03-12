@@ -1,0 +1,40 @@
+﻿@model MvcMovie.Models.OrderDetails
+
+@{
+    ViewData["Title"] = "Rent";
+}
+
+<h2>Rent</h2>
+
+<h4>Movie</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="MovieID" value="@Model.MovieID" />
+            <input type="hidden" name="UserId" value="@Model.UserId" />
+
+            <div class="form-group">
+                <label for="RentDate" class="control-label">Rent date</label>
+                <input name="RentDate" class="form-control" type="datetime" />
+
+            </div>
+            <div class="form-group">
+                <label for="ReturnDate" class="control-label">ReturnDate</label>
+                <input name="ReturnDate" class="form-control" type="datetime" />
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Rent" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

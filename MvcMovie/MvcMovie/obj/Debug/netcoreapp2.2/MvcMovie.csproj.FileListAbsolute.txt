@@ -107,10 +107,6 @@ D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\M
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Manage\_ManageNav.g.cshtml.cs
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Manage\_StatusMessage.g.cshtml.cs
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Manage\_ViewImports.g.cshtml.cs
-D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Create.g.cshtml.cs
-D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Delete.g.cshtml.cs
-D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Details.g.cshtml.cs
-D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Edit.g.cshtml.cs
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Index.g.cshtml.cs
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -129,3 +125,5 @@ D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\A
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Details.g.cshtml.cs
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Edit.g.cshtml.cs
 D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Index.g.cshtml.cs
+D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Rent.g.cshtml.cs
+D:\PROJECTS\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Rent\Index.g.cshtml.cs

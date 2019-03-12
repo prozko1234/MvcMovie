@@ -46,8 +46,7 @@ namespace MvcMovie.Controllers
             {
                 searchString = currentFilter;
             }
-
-
+            
             var movies = from m in _context.Movie
                          select m;
 
@@ -91,21 +90,15 @@ namespace MvcMovie.Controllers
             {
                 movies = movies.Where(x => x.Genre == movieGenre);
             }
+
             int pageSize = 3;
+
             var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = options,
                 Movies = await PaginatedList<Movie>.CreateAsync(movies, page ?? 1, pageSize)
             };
-
-
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    if (User.IsInRole("Admin"))
-            //    {
-            //        return View("AdminIndex",movieGenreVM);
-            //    }
-            //}
+            
             return View(movieGenreVM);
         }
         
