@@ -17,9 +17,12 @@ namespace MvcMovie.Data
         }
         public DbSet<MvcMovie.Models.Movie> Movie { get; set; }
         public DbSet<MvcMovie.Models.OrderDetails> OrderDetails { get; set; }
+        public DbQuery<MvcMovie.Models.MovieView> MovieViews { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Query<MovieView>().ToView("available_movies");
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.

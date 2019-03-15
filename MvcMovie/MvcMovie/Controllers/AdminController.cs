@@ -11,15 +11,14 @@ using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
 
 namespace MvcMovie.Controllers
 {
     public class AdminController : Controller
     {
         // GET: /<controller>/
-
-
+        
         private readonly ApplicationDbContext _context;
 
         public AdminController(ApplicationDbContext context)
@@ -52,7 +51,7 @@ namespace MvcMovie.Controllers
             }
 
 
-            var movies = from m in _context.Movie
+            var movies = from m in _context.MovieViews
                          select m;
 
             switch (sortOrder)
@@ -99,7 +98,7 @@ namespace MvcMovie.Controllers
             var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = options,
-                Movies = await PaginatedList<Movie>.CreateAsync(movies, page ?? 1, pageSize)
+                Movies = await PaginatedList<MovieView>.CreateAsync(movies, page ?? 1, pageSize)
             };
 
 

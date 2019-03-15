@@ -47,7 +47,7 @@ namespace MvcMovie.Controllers
                 searchString = currentFilter;
             }
             
-            var movies = from m in _context.Movie
+            var movies = from m in _context.MovieViews
                          select m;
 
             switch (sortOrder)
@@ -96,7 +96,7 @@ namespace MvcMovie.Controllers
             var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = options,
-                Movies = await PaginatedList<Movie>.CreateAsync(movies, page ?? 1, pageSize)
+                Movies = await PaginatedList<MovieView>.CreateAsync(movies, page ?? 1, pageSize)
             };
             
             return View(movieGenreVM);
