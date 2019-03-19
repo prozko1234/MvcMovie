@@ -14,5 +14,6 @@ namespace MvcMovie.Models
         public string Genre { get; private set; }
         public string Rating { get; private set; }
         public uint Quantity { get; private set; }
+        public uint QuantityMax { get; private set; }
     }
 }

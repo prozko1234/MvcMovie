@@ -15,9 +15,9 @@ namespace MvcMovie.Data
         {
 
         }
-        public DbSet<MvcMovie.Models.Movie> Movie { get; set; }
-        public DbSet<MvcMovie.Models.OrderDetails> OrderDetails { get; set; }
-        public DbQuery<MvcMovie.Models.MovieView> MovieViews { get; set; }
+        public DbSet<Movie> Movie { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
+        public DbQuery<MovieView> MovieViews { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

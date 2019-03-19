@@ -179,7 +179,6 @@ C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Man
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Manage\_StatusMessage.g.cshtml.cs
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Manage\_ViewImports.g.cshtml.cs
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Index.g.cshtml.cs
-C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Movies\Rent.g.cshtml.cs
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Rent\Index.g.cshtml.cs
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -193,3 +192,4 @@ C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.Views.
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.dll
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.pdb
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.csproj.CopyComplete
+C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Rent\MyRent.g.cshtml.cs

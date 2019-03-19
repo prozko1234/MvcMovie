@@ -67,20 +67,42 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var movie = await _context.Movie
-                //.SingleOrDefaultAsync(m => m.Id == movieId);
-                //orDet.MovieID = movie.Id;
-                //orDet.UserId = await GetCurrentUserId();
-
                 Console.WriteLine(orDet.UserId);
 
                 _context.Add(orDet);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index),"Movies");
             }
 
-            return View(orDet);
+            return View("Index",orDet);
+        }
+
+        public async Task<IActionResult> MyRent(int? Id,
+            int? page)
+        {
+            int pageSize = 6;
+
+            var userId = await GetCurrentUserId();
+            //var orders = from o in _context.OrderDetails
+            //             where o.UserId == userId
+            //            select o;
+
+            var orders1 = _context.OrderDetails.Include(x => x.Movie).Where(x => x.UserId == userId).AsQueryable();
+
+            OrderDetails orDet = new OrderDetails();
+
+            if(orDet.UserId == await GetCurrentUserId())
+            {
+                
+            }
+            
+            RentViewModel rentVM = new RentViewModel()
+            {
+                OrdersDetails = await PaginatedList<OrderDetails>.CreateAsync(orders1, page ?? 1, pageSize)
+            };
+
+            return View("MyRent",rentVM);
         }
     }
 }
