@@ -193,3 +193,4 @@ C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.dll
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.pdb
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.csproj.CopyComplete
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Rent\MyRent.g.cshtml.cs
+C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\MyRentAdm.g.cshtml.cs

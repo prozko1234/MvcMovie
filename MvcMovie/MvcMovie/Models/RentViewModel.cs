@@ -7,7 +7,7 @@ namespace MvcMovie.Models
 {
     public class RentViewModel
     {
-        public PaginatedList<OrderDetails> OrdersDetails { get; set; }
+        public List<OrderDetails> OrdersDetails { get; set; }
 
     }
 }

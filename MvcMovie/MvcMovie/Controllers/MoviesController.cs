@@ -15,7 +15,6 @@ namespace MvcMovie.Controllers
 {   
     public class MoviesController : Controller
     {
-        
         private readonly ApplicationDbContext _context;
 
         public MoviesController(ApplicationDbContext context)
@@ -79,8 +78,7 @@ namespace MvcMovie.Controllers
             }
             //FILTERING
             var options = await  _context.Movie.AsQueryable().Select(x => x.Genre).Distinct().Select(x => new SelectListItem(x, x)).ToListAsync();
-
-
+            
             if (!String.IsNullOrEmpty(searchString))
             {
                 movies = movies.Where(m => m.Title.Contains(searchString));

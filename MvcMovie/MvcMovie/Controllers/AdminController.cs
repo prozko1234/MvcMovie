@@ -20,12 +20,23 @@ namespace MvcMovie.Controllers
         // GET: /<controller>/
         
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AdminController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+        }
+        //-----------------------------------------------------------------
+        [HttpGet]
+        public async Task<string> GetCurrentUserId()
+        {
+            ApplicationUser usr = await GetCurrentUserAsync();
+            return usr?.Id;
         }
 
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+        //-----------------------------------------------------------------
         // GET: Movies
         public async Task<IActionResult> Index(
             string movieGenre,
@@ -40,6 +51,7 @@ namespace MvcMovie.Controllers
             ViewData["GenreParam"] = sortOrder == "Genre" ? "Genre_desc" : "Genre";
             ViewData["PriceParam"] = sortOrder == "Price" ? "Price_desc" : "Price";
             ViewData["CurrentFilter"] = searchString;
+            ViewData["answ"] = "-";
 
             if (searchString != null)
             {
@@ -49,8 +61,7 @@ namespace MvcMovie.Controllers
             {
                 searchString = currentFilter;
             }
-
-
+            
             var movies = from m in _context.MovieViews
                          select m;
 
@@ -83,8 +94,7 @@ namespace MvcMovie.Controllers
             }
             //FILTERING
             var options = await _context.Movie.AsQueryable().Select(x => x.Genre).Distinct().Select(x => new SelectListItem(x, x)).ToListAsync();
-
-
+            
             if (!String.IsNullOrEmpty(searchString))
             {
                 movies = movies.Where(m => m.Title.Contains(searchString));
@@ -164,6 +174,7 @@ namespace MvcMovie.Controllers
             }
 
             var movie = await _context.Movie.SingleOrDefaultAsync(m => m.Id == id);
+
             if (movie == null)
             {
                 return NotFound();
@@ -236,6 +247,21 @@ namespace MvcMovie.Controllers
             _context.Movie.Remove(movie);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> MyRent()
+        {
+            var userId = await GetCurrentUserId();
+            
+            var orders1 = _context.OrderDetails.Include(x => x.Movie).Include(x => x.User).ToList();
+            
+            RentViewModel rentVM = new RentViewModel()
+            {
+                OrdersDetails = orders1
+            };
+
+            return View("MyRentAdm", rentVM);
         }
 
         private bool MovieExists(int id)

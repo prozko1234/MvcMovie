@@ -10,7 +10,7 @@
     <thead>
         <tr>
             <th>
-                MovieID
+                Movie Title
             </th>
             <th>
                 Rent Date
@@ -40,23 +40,3 @@
         </tbody>
     </table>
 
-    @*@{
-        var prevDisabled = !Model.OrdersDetails.HasPreviousPage ? "disabled" : "";
-        var nextDisabled = !Model.OrdersDetails.HasNextPage ? "disabled" : "";
-    }
-
-    <a asp-action="MyRent"
-       asp-route-sortOrder="@ViewData["CurrentSort"]"
-       asp-route-page="@(Model.OrdersDetails.PageIndex - 1)"
-       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-       class="btn btn-default @prevDisabled">
-        Previous
-    </a>
-
-    <a asp-action="MyRent"
-       asp-route-sortOrder="@ViewData["CurrentSort"]"
-       asp-route-page="@(Model.OrdersDetails.PageIndex + 1)"
-       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-       class="btn btn-default @nextDisabled">
-        Next
-    </a>*@

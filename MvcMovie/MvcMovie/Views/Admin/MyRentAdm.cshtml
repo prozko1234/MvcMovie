@@ -1,0 +1,59 @@
+﻿@model MvcMovie.Models.RentViewModel
+
+@{
+    ViewData["Title"] = "My Rents";
+}
+
+<h2>My Rent</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Movie Title
+            </th>
+            <th>
+                Users Name
+            </th>
+            <th>
+                Rent Date
+            </th>
+            <th>
+                Return Date
+            </th>
+            <th>
+                Exact Return Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.OrdersDetails)
+        {
+        <tr>
+            <td>
+                @item.Movie.Title
+            </td>
+            <td>
+                @item.User.UserName
+            </td>
+            <td>
+                @item.RentDate.ToString("dd-MM-yyyy")
+            </td>
+            <td>
+                @item.RentDate.ToString("dd-MM-yyyy")
+            </td>
+            <td>
+                @if(@item.ExactReturnDate != null){
+                @item.ExactReturnDate.Value.ToString("dd-MM-yyyy")
+                } else {<p>Not returned</p>}
+            </td>
+            <td>
+                <a asp-action="Edit" asp-controller="Admin"></a>
+            </td>
+        </tr>
+                }
+            
+        </tbody>
+    </table>
+
