@@ -24,6 +24,9 @@
             <th>
                 Exact Return Date
             </th>
+            <th>
+                Damaged
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -49,7 +52,10 @@
                 } else {<p>Not returned</p>}
             </td>
             <td>
-                <a asp-action="Edit" asp-controller="Admin"></a>
+                @item.Damaged
+            </td>
+            <td>
+                <a asp-action="EditOrder" asp-route-id="@item.Id">Edit</a>
             </td>
         </tr>
                 }

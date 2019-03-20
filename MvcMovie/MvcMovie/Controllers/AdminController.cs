@@ -264,6 +264,75 @@ namespace MvcMovie.Controllers
             return View("MyRentAdm", rentVM);
         }
 
+        
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> EditOrder(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var order = await _context.OrderDetails.SingleOrDefaultAsync(x => x.Id == id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            OrderEditModel orEd = new OrderEditModel()
+            {
+                Id = order.Id,
+                ExactReturnDate = order.ExactReturnDate,
+                Damaged = order.Damaged
+            };
+
+            return View("EditOrder",orEd);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOrder(int id, [Bind("Id,ExactReturnDate,Damaged")] OrderEditModel orEd)
+        {
+            var order = await _context.OrderDetails.SingleOrDefaultAsync(x => x.Id == id);
+
+            order.ExactReturnDate = orEd.ExactReturnDate;
+            order.Damaged = orEd.Damaged;
+
+            if (id != order.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(order);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!OrderExists(order.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(MyRent),"Admin");
+            }
+            return View(order);
+        }
+
+        private bool OrderExists(int id)
+        {
+            return _context.OrderDetails.Any(e => e.Id == id);
+        }
+
         private bool MovieExists(int id)
         {
             return _context.Movie.Any(e => e.Id == id);

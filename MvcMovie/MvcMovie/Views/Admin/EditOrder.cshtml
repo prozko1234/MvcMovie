@@ -1,0 +1,35 @@
+﻿@model MvcMovie.Models.OrderEditModel
+
+@{
+    ViewData["Title"] = "EditOrder";
+}
+
+<h2>Edit</h2>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditOrder">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ExactReturnDate" class="control-label"></label>
+                <input asp-for="ExactReturnDate" class="form-control" />
+                <span asp-validation-for="ExactReturnDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Damaged" class="control-label"></label>
+                <p class="text-center">is damaged?</p>
+                <input asp-for="Damaged" class="form-control" />
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="MyRent">Back to List</a>
+</div>
+

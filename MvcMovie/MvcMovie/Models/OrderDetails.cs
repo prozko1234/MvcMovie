@@ -35,6 +35,8 @@ namespace MvcMovie.Models
         [ForeignKey("Movie")]
         public int MovieID { get; set; }
         public Movie Movie { get; set; }
+
+        public bool Damaged { get; set; }
     }
 
 }

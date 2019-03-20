@@ -210,6 +210,8 @@ namespace MvcMovie.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Damaged");
+
                     b.Property<DateTime?>("ExactReturnDate");
 
                     b.Property<int>("MovieID");
