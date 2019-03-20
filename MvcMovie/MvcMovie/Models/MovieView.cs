@@ -15,5 +15,6 @@ namespace MvcMovie.Models
         public string Rating { get; private set; }
         public uint Quantity { get; private set; }
         public uint QuantityMax { get; private set; }
+        public DateTime NearDate { get; private set; }
     }
 }

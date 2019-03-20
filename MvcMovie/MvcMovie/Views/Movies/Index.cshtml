@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    ViewBag.IsQuant = true;
 }
 
 <h2>Index</h2>
@@ -42,6 +43,9 @@
             <th>
                 Rent
             </th>
+            <th>
+                Available in
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -66,9 +70,24 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
-            <td>
-                <a asp-controller="Rent" asp-action="Index"  asp-route-movieId="@item.Id"> Rent </a>
-            </td>
+            @if (item.Quantity <= 0)
+            {
+                <td>
+                    Missing
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NearDate)
+                </td>
+            }
+            else
+            {
+                <td>
+                    <a asp-controller="Rent" asp-action="Index" asp-route-movieId="@item.Id"> Rent </a>
+                </td>
+                <td>
+                    Available now
+                </td>
+            }
         </tr>
         }
     </tbody>
