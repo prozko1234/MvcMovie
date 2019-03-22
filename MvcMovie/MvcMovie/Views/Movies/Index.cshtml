@@ -1,9 +1,5 @@
 ﻿@model MvcMovie.Models.MovieGenreViewModel
 
-@{
-    ViewData["Title"] = "Index";
-    ViewBag.IsQuant = true;
-}
 
 <h2>Index</h2>
 
@@ -51,44 +47,44 @@
     <tbody>
         @foreach (var item in Model.Movies)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @item.ReleaseDate.ToString("dd-MM-yyyy")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @item.Price.ToString("F2")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            @if (item.Quantity <= 0)
-            {
+            <tr>
                 <td>
-                    Missing
+                    @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NearDate)
-                </td>
-            }
-            else
-            {
-                <td>
-                    <a asp-controller="Rent" asp-action="Index" asp-route-movieId="@item.Id"> Rent </a>
+                    @item.ReleaseDate.ToString("dd-MM-yyyy")
                 </td>
                 <td>
-                    Available now
+                    @Html.DisplayFor(modelItem => item.Genre)
                 </td>
-            }
-        </tr>
+                <td>
+                    @item.Price.ToString("F2")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                @if (item.Quantity <= 0)
+                {
+                    <td>
+                        Missing
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NearDate)
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a href="javascript:void(0);" class="anchorRent" data-id="@item.Id"> Rent </a>
+                    </td>
+                    <td>
+                        Available now
+                    </td>
+                }
+            </tr>
         }
     </tbody>
 </table>
@@ -112,3 +108,15 @@
    class="btn btn-default @nextDisabled">
     Next
 </a>
+
+<div id='myModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Views/Movies/PopUpRent.js"></script>
+}

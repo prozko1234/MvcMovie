@@ -51,7 +51,6 @@ namespace MvcMovie.Controllers
             ViewData["GenreParam"] = sortOrder == "Genre" ? "Genre_desc" : "Genre";
             ViewData["PriceParam"] = sortOrder == "Price" ? "Price_desc" : "Price";
             ViewData["CurrentFilter"] = searchString;
-            ViewData["answ"] = "-";
 
             if (searchString != null)
             {
@@ -104,7 +103,7 @@ namespace MvcMovie.Controllers
             {
                 movies = movies.Where(x => x.Genre == movieGenre);
             }
-            int pageSize = 3;
+            int pageSize = 4;
             var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = options,
@@ -137,7 +136,7 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            return View(movie);
+            return PartialView("Details",movie);
         }
 
         // GET: Movies/Create
@@ -179,14 +178,14 @@ namespace MvcMovie.Controllers
             {
                 return NotFound();
             }
-            return View(movie);
+            return PartialView("Edit",movie);
         }
 
         // POST: Movies/Edit/5
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Quantity")] Movie movie)
         {
             if (id != movie.Id)
             {
@@ -232,7 +231,7 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            return View(movie);
+            return PartialView("Delete",movie);
         }
 
         // POST: Movies/Delete/5
@@ -285,7 +284,7 @@ namespace MvcMovie.Controllers
                 Damaged = order.Damaged
             };
 
-            return View("EditOrder",orEd);
+            return PartialView("EditOrder",orEd);
         }
 
         [Authorize(Roles = "Admin")]
@@ -293,6 +292,7 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditOrder(int id, [Bind("Id,ExactReturnDate,Damaged")] OrderEditModel orEd)
         {
+            id = orEd.Id;
             var order = await _context.OrderDetails.SingleOrDefaultAsync(x => x.Id == id);
 
             order.ExactReturnDate = orEd.ExactReturnDate;

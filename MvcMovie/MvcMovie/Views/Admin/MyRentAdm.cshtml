@@ -33,33 +33,82 @@
 
         @foreach (var item in Model.OrdersDetails)
         {
-        <tr>
-            <td>
-                @item.Movie.Title
-            </td>
-            <td>
-                @item.User.UserName
-            </td>
-            <td>
-                @item.RentDate.ToString("dd-MM-yyyy")
-            </td>
-            <td>
-                @item.RentDate.ToString("dd-MM-yyyy")
-            </td>
-            <td>
-                @if(@item.ExactReturnDate != null){
-                @item.ExactReturnDate.Value.ToString("dd-MM-yyyy")
-                } else {<p>Not returned</p>}
-            </td>
-            <td>
-                @item.Damaged
-            </td>
-            <td>
-                <a asp-action="EditOrder" asp-route-id="@item.Id">Edit</a>
-            </td>
-        </tr>
-                }
-            
-        </tbody>
-    </table>
+            <tr>
+                <td>
+                    @item.Movie.Title
+                </td>
+                <td>
+                    @item.User.UserName
+                </td>
+                <td>
+                    @item.RentDate.ToString("dd-MM-yyyy")
+                </td>
+                <td>
+                    @item.RentDate.ToString("dd-MM-yyyy")
+                </td>
+                <td>
+                    @if (@item.ExactReturnDate != null)
+                    {
+                        @item.ExactReturnDate.Value.ToString("dd-MM-yyyy")
+                    }
+                    else
+                    {<p>Not returned</p>}
+                </td>
+                <td>
+                    @item.Damaged
+                </td>
+                <td>
+                    <a href="javascript:void(0);" class="anchorEditOrder" data-id="@item.Id">Edit Order</a>
+                </td>
+            </tr>
+        }
 
+    </tbody>
+</table>
+
+<div id='myModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        var TeamEditOrderPostBackURL = '/Admin/EditOrder';
+        $(function () {
+            $(".anchorEditOrder").click(function () {
+                var $buttonClicked = $(this);
+                var id = $buttonClicked.attr('data-id');
+                var options = { "backdrop": "static", keyboard: true };
+                $.ajax({
+                    type: "GET",
+                    url: TeamEditOrderPostBackURL,
+                    contentType: "application/json; charset=utf-8",
+                    data: { "Id": id },
+                    datatype: "json",
+                    success: function (data) {
+                        $('#myModalContent').html(data);
+                        $('#myModal').modal(options);
+                        $('#myModal').modal('show');
+                    },
+                    error: function () {
+                        alert("Dynamic content load failed.");
+                    }
+                });
+            });
+            $("#closebtn").on('click', function () {
+                $('#myModal').modal('hide');
+
+                //$("#closbtn").click(function () {
+                //    $('#myModal').modal('hide');
+            });
+        });
+    </script>
+
+}

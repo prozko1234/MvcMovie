@@ -36,7 +36,7 @@ namespace MvcMovie.Controllers
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
         //---------------------
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Index(int? movieId)
         {
             if (movieId == null)
@@ -57,10 +57,10 @@ namespace MvcMovie.Controllers
 
             orDet.UserId = await GetCurrentUserId();
             
-            return View(orDet);
+            return PartialView("Index", orDet);
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index([Bind("RentDate,ReturnDate,MovieID,UserId")] OrderDetails orDet)
@@ -75,7 +75,7 @@ namespace MvcMovie.Controllers
                 return RedirectToAction(nameof(Index),"Movies");
             }
 
-            return View("Index",orDet);
+            return PartialView("Index",orDet);
         }
 
         public async Task<IActionResult> MyRent()

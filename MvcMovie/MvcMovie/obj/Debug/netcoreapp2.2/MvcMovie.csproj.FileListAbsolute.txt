@@ -195,3 +195,4 @@ C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\MvcMovie.csproj
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Rent\MyRent.g.cshtml.cs
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\MyRentAdm.g.cshtml.cs
 C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditOrder.g.cshtml.cs
+C:\Bogdan\VisualStudio\MvcMovie\MvcMovie\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Details.g.cshtml.cs
