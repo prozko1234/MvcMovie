@@ -1,5 +1,10 @@
 ﻿var TeamRentPostBackURL = '/Rent/Index';
+
 $(function () {
+    //$(document).ready(function () {
+    //    $('#table_id').DataTable();
+    //});
+
     $(".anchorRent").click(function () {
         var $buttonClicked = $(this);
         var id = $buttonClicked.attr('data-id');

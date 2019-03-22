@@ -6,7 +6,7 @@
 
 <h2>My Rent</h2>
 
-<table class="table">
+<table id="rents" class="table display">
     <thead>
         <tr>
             <th>
@@ -74,41 +74,6 @@
     </div>
 </div>
 
-@section scripts
-    {
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-        var TeamEditOrderPostBackURL = '/Admin/EditOrder';
-        $(function () {
-            $(".anchorEditOrder").click(function () {
-                var $buttonClicked = $(this);
-                var id = $buttonClicked.attr('data-id');
-                var options = { "backdrop": "static", keyboard: true };
-                $.ajax({
-                    type: "GET",
-                    url: TeamEditOrderPostBackURL,
-                    contentType: "application/json; charset=utf-8",
-                    data: { "Id": id },
-                    datatype: "json",
-                    success: function (data) {
-                        $('#myModalContent').html(data);
-                        $('#myModal').modal(options);
-                        $('#myModal').modal('show');
-                    },
-                    error: function () {
-                        alert("Dynamic content load failed.");
-                    }
-                });
-            });
-            $("#closebtn").on('click', function () {
-                $('#myModal').modal('hide');
-
-                //$("#closbtn").click(function () {
-                //    $('#myModal').modal('hide');
-            });
-        });
-    </script>
-
+@section scripts {
+    <script type="text/javascript" src="~/Views/Rent/AdminMyRent.js"></script>
 }

@@ -15,7 +15,7 @@
         </p>
     </div>
 </form>
-<table class="table">
+<table id="table_id" class="table display">
     <thead>
         <tr>
             <th>
@@ -88,6 +88,7 @@
         }
     </tbody>
 </table>
+
 @{
     var prevDisabled = !Model.Movies.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.Movies.HasNextPage ? "disabled" : "";
@@ -118,5 +119,5 @@
 </div>
 
 @section scripts{
-    <script type="text/javascript" src="~/Views/Movies/PopUpRent.js"></script>
+    <script type="text/javascript" src="~/Views/Movies/MoviesIndex.js"></script>
 }

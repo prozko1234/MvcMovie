@@ -1,4 +1,7 @@
-﻿var TeamDetailPostBackURL = '/Admin/Details';
+﻿var TeamEditPostBackURL = '/Admin/Edit';
+var TeamDeletePostBackURL = '/Admin/Delete';
+var TeamDetailPostBackURL = '/Admin/Details';
+
 $(function () {
     $(".anchorDetail").click(function () {
         var $buttonClicked = $(this);
@@ -26,11 +29,7 @@ $(function () {
         //$("#closbtn").click(function () {
         //    $('#myModal').modal('hide');
     });
-});
 
-
-var TeamEditPostBackURL = '/Admin/Edit';
-$(function () {
     $(".anchorEdit").click(function () {
         var $buttonClicked = $(this);
         var id = $buttonClicked.attr('data-id');
@@ -57,10 +56,7 @@ $(function () {
         //$("#closbtn").click(function () {
         //    $('#myModal').modal('hide');
     });
-});
 
-var TeamDeletePostBackURL = '/Admin/Delete';
-$(function () {
     $(".anchorDelete").click(function () {
         var $buttonClicked = $(this);
         var id = $buttonClicked.attr('data-id');

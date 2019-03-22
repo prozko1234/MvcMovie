@@ -94,5 +94,23 @@ namespace MvcMovie.Controllers
 
             return View("MyRent",rentVM);
         }
+
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> MyRentAdm()
+        {
+            var userId = await GetCurrentUserId();
+
+            var orders1 = _context.OrderDetails.Include(x => x.Movie).Include(x => x.User).ToList();
+
+            RentViewModel rentVM = new RentViewModel()
+            {
+                OrdersDetails = orders1
+            };
+
+            return View("MyRentAdm", rentVM);
+        }
+
+
     }
 }

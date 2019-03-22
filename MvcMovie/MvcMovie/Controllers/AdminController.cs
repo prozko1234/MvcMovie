@@ -245,24 +245,7 @@ namespace MvcMovie.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> MyRent()
-        {
-            var userId = await GetCurrentUserId();
-            
-            var orders1 = _context.OrderDetails.Include(x => x.Movie).Include(x => x.User).ToList();
-            
-            RentViewModel rentVM = new RentViewModel()
-            {
-                OrdersDetails = orders1
-            };
-
-            return View("MyRentAdm", rentVM);
-        }
-
         
-
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditOrder(int? id)
         {
@@ -321,7 +304,7 @@ namespace MvcMovie.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(MyRent),"Admin");
+                return RedirectToAction(nameof(Index),"Admin");
             }
             return View(order);
         }

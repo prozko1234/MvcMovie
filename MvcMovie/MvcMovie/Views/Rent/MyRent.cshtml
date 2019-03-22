@@ -6,7 +6,7 @@
 
 <h2>My Rent</h2>
 
-<table class="table">
+<table id="table_id" class="table display">
     <thead>
         <tr>
             <th>
@@ -24,19 +24,22 @@
 
         @foreach (var item in Model.OrdersDetails)
         {
-        <tr>
-            <td>
-                @item.Movie.Title
-            </td>
-            <td>
-                @item.RentDate.ToString("dd-MM-yyyy")
-            </td>
-            <td>
-                @item.RentDate.ToString("dd-MM-yyyy")
-            </td>
-        </tr>
-                }
-            
-        </tbody>
-    </table>
+            <tr>
+                <td>
+                    @item.Movie.Title
+                </td>
+                <td>
+                    @item.RentDate.ToString("dd-MM-yyyy")
+                </td>
+                <td>
+                    @item.RentDate.ToString("dd-MM-yyyy")
+                </td>
+            </tr>
+        }
 
+    </tbody>
+</table>
+
+@section scripts {
+    <script type="text/javascript" src="~/Views/Rent/UserMyRent.js"></script>
+    }
