@@ -3,26 +3,11 @@
 
 
 $(function () {
-    $(document).ready(function () {
-        $('#rents').DataTable({
-            "stateSave": true,
-            "stateDuration": -1,
+       
 
-            "infoFiltered": false,
-            "dom": '<"top"fi>rt<"bottom"lp><"clear">',
-            "columns": [
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                { "orderable": false }
-            ]
-        })
-
-    $(".anchorEditOrder").click(function () {
+        $(".anchorEditOrder").click(function () {
         var $buttonClicked = $(this);
+        
         var id = $buttonClicked.attr('data-id');
         var options = { "backdrop": "static", keyboard: true };
         $.ajax({
@@ -47,5 +32,20 @@ $(function () {
         //$("#closbtn").click(function () {
         //    $('#myModal').modal('hide');
     });
+    $('#rents').DataTable({
+        "stateSave": true,
+        "stateDuration": -1,
+
+        "infoFiltered": false,
+        "dom": '<"top"fi>rt<"bottom"lp><"clear">',
+        "columns": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            { "orderable": false }
+        ]
     });
 });

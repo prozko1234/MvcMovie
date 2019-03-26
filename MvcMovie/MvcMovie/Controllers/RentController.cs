@@ -67,8 +67,6 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine(orDet.UserId);
-
                 _context.Add(orDet);
                 await _context.SaveChangesAsync();
 

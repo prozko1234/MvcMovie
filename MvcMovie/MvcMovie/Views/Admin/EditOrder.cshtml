@@ -16,7 +16,7 @@
                 <input type="hidden" asp-for="Id" />
                 <div class="form-group">
                     <label asp-for="ExactReturnDate" class="control-label"></label>
-                    <input asp-for="ExactReturnDate" class="form-control" />
+                    <input value="@Model.ExactReturnDate" name="ExactReturnDate" autocomplete="off" class="form-control datapicker" data-provide="datepicker" />
                     <span asp-validation-for="ExactReturnDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -31,6 +31,6 @@
     </div>
 
     <div>
-        <a asp-action="MyRent">Back to List</a>
+        <a asp-controller="Rent" asp-action="MyRentAdm">Back to List</a>
     </div>
 </div>
