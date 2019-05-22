@@ -79,9 +79,6 @@ namespace MvcMovie.Controllers
         public async Task<IActionResult> MyRent()
         {
             var userId = await GetCurrentUserId();
-            //var orders = from o in _context.OrderDetails
-            //             where o.UserId == userId
-            //            select o;
 
             var orders1 = _context.OrderDetails.Include(x => x.Movie).Where(x => x.UserId == userId).ToList();
             

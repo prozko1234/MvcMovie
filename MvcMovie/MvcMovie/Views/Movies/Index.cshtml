@@ -6,11 +6,6 @@
 <form asp-controller="Movies" asp-action="Index" method="get">
     <div class="form-actions no-color">
         <p>
-            Genres: <select asp-for="MovieGenre" asp-items="Model.Genres">
-                <option value="">All</option>
-            </select>
-            Title: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
-            <input type="submit" value="Search" class="btn btn-default" /> |
             <a asp-action="Index">Back to Full List</a>
         </p>
     </div>
@@ -19,16 +14,16 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Title</a>
+                <a asp-action="Index">Title</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["RelDateParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Release Date</a>
+                <a asp-action="Index">Release Date</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["GenreParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Genre</a>
+                <a asp-action="Index">Genre</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Price</a>
+                <a asp-action="Index">Price</a>
             </th>
             <th>
                 Rating
@@ -88,27 +83,6 @@
         }
     </tbody>
 </table>
-
-@{
-    var prevDisabled = !Model.Movies.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.Movies.HasNextPage ? "disabled" : "";
-}
-
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-page="@(Model.Movies.PageIndex - 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @prevDisabled">
-    Previous
-</a>
-
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-page="@(Model.Movies.PageIndex + 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @nextDisabled">
-    Next
-</a>
 
 <div id='myModal' class='modal'>
     <div class="modal-dialog">
