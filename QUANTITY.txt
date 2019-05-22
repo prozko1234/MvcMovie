@@ -1,0 +1,50 @@
+CREATE OR REPLACE FUNCTION get_quantity(mov_id INTEGER)
+RETURNS INTEGER
+AS $$  
+DECLARE quantity INTEGER;
+		number_of_id INTEGER;
+BEGIN
+	 number_of_id := (SELECT COUNT("MovieID")
+	FROM public."OrderDetails"
+	WHERE "MovieID" = 2
+	AND "ExactReturnDate" is NULL);
+					   
+	quantity := (SELECT "Quantity" - number_of_id 
+				 FROM public."Movie" 
+				 WHERE "Id" = mov_id);
+	RETURN quantity;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+
+
+create function get_nearest_date (movie_id integer)
+returns date
+as $$
+declare near_date date;
+
+begin
+	near_date:=(select "ReturnDate" = near_date
+	from public."OrderDetails"
+	where "MovieID" = movie_id and "ReturnDate" != null
+	limit 1);
+	
+	return near_date;
+end;
+$$
+language 'plpgsql';
+
+
+
+create or replace view available_movies as
+select "Id" as "Id",
+	   "Title" as "Title",
+	   "ReleaseDate" as "ReleaseDate",
+	   "Price" as "Price",
+	   "Genre" as "Genre",
+	   "Rating" as "Rating",
+	   public.get_quantity("Id") as "Quantity",
+	   "Quantity" as "QuantityMax",
+	   public.get_nearest_date("Id") as "NearDate"
+	   from public."Movie"

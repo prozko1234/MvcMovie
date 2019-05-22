@@ -9,7 +9,6 @@ using MvcMovie.Data;
 using MvcMovie.Models;
 using Microsoft.AspNetCore.Identity;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MvcMovie.Controllers
 {
@@ -105,7 +104,5 @@ namespace MvcMovie.Controllers
 
             return View("MyRentAdm", rentVM);
         }
-
-
     }
 }
