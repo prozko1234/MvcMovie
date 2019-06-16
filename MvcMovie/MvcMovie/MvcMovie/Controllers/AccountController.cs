@@ -15,7 +15,9 @@ using MvcMovie.Models.AccountViewModels;
 using MvcMovie.Services;
 
 namespace MvcMovie.Controllers
-{
+{/*! \brief AccountController class automatically generated with "Identity" framework
+         *         There is functionality for login system in project
+         */
     [Authorize]
     [Route("[controller]/[action]")]
     public class AccountController : Controller

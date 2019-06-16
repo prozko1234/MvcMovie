@@ -12,17 +12,28 @@ using MvcMovie.Data;
 using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
-{   
+{   /*! \brief MoviesController class for User's version of page.
+         *         There are actions for controlling page's functionality
+         */
     public class MoviesController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
+        private readonly ApplicationDbContext _context;/*!< \param - for recieving data from database */
+        /**
+       * A constructor taking two arguments.
+       * This constructor recieves ApplicationDbContext variable and writes them to field.
+       */
         public MoviesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Movies
+        //! Async Action for getting list of films and showing it.
+        /*!
+         * It's method that assign data list of films to model's object and return it to "Index" view. 
+         * \param movies contain list of films.
+         * \param movieGenreVM model's object
+         * \return model for "Index" view.
+         */
         public async Task<IActionResult> Index()
         {
             var movies = from m in _context.MovieViews
@@ -37,7 +48,10 @@ namespace MvcMovie.Controllers
             
             return View(movieGenreVM);
         }
-        
+        //! Methode for checking is movie exists.
+        /*!
+         *  \return true if exists and false if it doesn't exists 
+         */
         public bool MovieExists(int id)
         {
             return _context.Movie.Any(e => e.Id == id);

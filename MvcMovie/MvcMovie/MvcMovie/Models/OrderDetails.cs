@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace MvcMovie.Models
 {
-
+    /*! \brief OrderDetails class is a model for order entities.
+         */
     public class OrderDetails
     {
         public int Id { get; set;}

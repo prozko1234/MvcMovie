@@ -5,7 +5,8 @@ using System;
 using System.Linq;
 
 namespace MvcMovie.Models
-{
+{/*! \brief SeedData class created for initialization of movies etities on database if it's empty
+         */
     public static class SeedData
     {
         public static void Initialize(IServiceProvider serviceProvider)

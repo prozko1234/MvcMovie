@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcMovie.Models
-{
+{/*! \brief Movie class is a model for movie entities.
+         */
     public class Movie
     {
         public int Id { get; set; }

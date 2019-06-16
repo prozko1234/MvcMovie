@@ -15,7 +15,9 @@ using MvcMovie.Models.ManageViewModels;
 using MvcMovie.Services;
 
 namespace MvcMovie.Controllers
-{
+{/*! \brief ManageController class automatically generated with "Identity" framework
+         *         There is functionality for user system in project
+         */
     [Authorize]
     [Route("[controller]/[action]")]
     public class ManageController : Controller

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 
 namespace MvcMovie.Models
-{
+{/*! \brief MovieGenreViewModel class is a view model of movie entities.
+         */
     public class MovieGenreViewModel
     {
         public List<MovieView> Movies { get; set; }

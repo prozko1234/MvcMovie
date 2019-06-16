@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using MvcMovie.Models;
 
 namespace MvcMovie.Data
-{
+{/*! \brief ApplicationDbContext class created for coordinatig functionality of EntityFramework.
+         *         There are added db context and entities
+         */
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) {}
-
-        //public ApplicationDbContext(DbContextOptions options) : base(options) { }
         
         public DbSet<Movie> Movie { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
@@ -23,10 +23,6 @@ namespace MvcMovie.Data
             base.OnModelCreating(builder);
 
             builder.Query<MovieView>().ToView("available_movies");
-
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
         }
     }
 }

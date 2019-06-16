@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MvcMovie.Models
 {
-    // Add profile data for application users by adding properties to the ApplicationUser class
+    /*! \brief ApplicationUser class created automaticly with Identity framework.
+         */
     public class ApplicationUser : IdentityUser
     {
     }

@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace MvcMovie.Models
-{
+{/*! \brief MovieView class is a model for movie entities from database's View.
+         */
     public class MovieView
     {
         public int Id { get; private set; }
