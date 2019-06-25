@@ -147,13 +147,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Async Action for geting current user ID. </p>
-<p>It's HttpGet method that gets object of user that currentky logged on page. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">usr</td><td>current user object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>user's ID. </dd></dl>
+<p>It's HttpGet method that gets object of user that currentky logged on page. </p><dl class="section return"><dt>Returns</dt><dd>user's ID. </dd></dl>
 
 </div>
 </div>
@@ -176,8 +170,7 @@ Public Member Functions</h2></td></tr>
 <p>Async Action for geting modal view and showing it. </p>
 <p>This action shows modal view to make movie order. This method requires user to be logged in. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">movies</td><td>contain list of films. </td></tr>
-    <tr><td class="paramname">orDet</td><td>model's object </td></tr>
+    <tr><td class="paramname">if</td><td>of film </td></tr>
   </table>
   </dd>
 </dl>
@@ -202,7 +195,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Action for creating new order and adding it to database. </p>
-<p>This method gets data from view's form and saves entity of rent in database. As arguments gets OrderDetail object and has binded values of form to write it in object. </p><dl class="section return"><dt>Returns</dt><dd>redirects to "Index" view after finishing operation. </dd></dl>
+<p>This method gets data from view's form and saves entity of rent in database. As arguments gets OrderDetail object and has binded values of form to write it in object. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orDet</td><td>Order Detail object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>redirects to "Index" view after finishing operation. </dd></dl>
 
 </div>
 </div>
@@ -222,14 +221,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Async Action for getting list of orders made by logged in user and showing it. </p>
-<p>It's method that assign data list of orders to model's object and return it to "MyRent" view. \userId id of logged in user. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">orders1</td><td>list of orders made by logged in user </td></tr>
-    <tr><td class="paramname">rentVM</td><td>model's object </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>model for "MyRent" view. </dd></dl>
+<p>It's method that assign data list of orders to model's object and return it to "MyRent" view. </p><dl class="section return"><dt>Returns</dt><dd>model for "MyRent" view. </dd></dl>
 
 </div>
 </div>
@@ -249,14 +241,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Async Action for getting list of orders made by all users and showing it. </p>
-<p>It's method that assign data list of orders made by all users to model's object and return it to "MyRent" view. \userId id of logged in user. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">orders1</td><td>list of orders made by logged in user </td></tr>
-    <tr><td class="paramname">rentVM</td><td>model's object </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>model for "MyRent" view. </dd></dl>
+<p>It's method that assign data list of orders made by all users to model's object and return it to "MyRent" view. </p><dl class="section return"><dt>Returns</dt><dd>model for "MyRent" view. </dd></dl>
 
 </div>
 </div>

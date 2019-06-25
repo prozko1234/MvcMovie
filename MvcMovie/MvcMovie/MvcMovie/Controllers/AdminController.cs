@@ -33,8 +33,7 @@ namespace MvcMovie.Controllers
 
         //! Async Action for geting current user ID.
         /*!
-         * It's HttpGet method that gets object of user that currentky logged on page. 
-         * \param usr current user object.
+         * It's HttpGet method that gets object of user that currentky logged on page.
          * \return user's ID.
          */
         [HttpGet]
@@ -49,9 +48,7 @@ namespace MvcMovie.Controllers
 
         //! Async Action for getting list of films and showing it.
         /*!
-         * It's method that assign data list of films to model's object and return it to "Index" view. 
-         * \param movies contain list of films.
-         * \param movieGenreVM model's object
+         * It's method that assign data list of films to model's object and return it to "Index" view.
          * \return model for "Index" view.
          */
         public async Task<IActionResult> Index()
@@ -71,7 +68,6 @@ namespace MvcMovie.Controllers
         /*!
          * This method gets id of film from view and returns partial view with film's details.
          * \param id it is id of film.
-         * \param movie object of film.
          * \return model for "Details" partial view.
          */
         public async Task<IActionResult> Details(int? id)
@@ -126,7 +122,7 @@ namespace MvcMovie.Controllers
         /*!
          * This method can be used only by user with "Admin" role.
          * It gets id of film as argument and check is film exist.
-         * \param movie film with id from argument.
+         * \param id of film.
          * \return model to "Edit" partial view.
          */
         [Authorize(Roles = "Admin")]
@@ -151,6 +147,7 @@ namespace MvcMovie.Controllers
          * This method can be used only by user with "Admin" role.
          * It gets data from View's form, validate it and if everything is right 
          * method saves it in database.
+         * \param id of film.
          * \return model to "Index" view.
          */
         [Authorize(Roles = "Admin")]
@@ -190,7 +187,7 @@ namespace MvcMovie.Controllers
         /*!
          * This method can be used only by user with "Admin" role.
          * It gets id of film as argument and check is film exist.
-         * \param movie film with id from argument.
+         * \param id of film.
          * \return model to "Delete" partial view.
          */
         [Authorize(Roles = "Admin")]
@@ -216,7 +213,7 @@ namespace MvcMovie.Controllers
          * This method can be used only by user with "Admin" role.
          * It deletes selected film. 
          * Method saves changes in database.
-         * \param movie film with id from argument.
+         * \param id of film.
          * \return "Index" view.
          */
         [Authorize(Roles = "Admin")]
@@ -234,7 +231,7 @@ namespace MvcMovie.Controllers
         /*!
          * This method can be used only by user with "Admin" role.
          * It gets id of order as argument and check is order exist.
-         * \param order order with id from argument.
+         * \param id of order.
          * \return model to "EditOrder" partial view.
          */
         [Authorize(Roles = "Admin")]
@@ -266,7 +263,7 @@ namespace MvcMovie.Controllers
          * This method can be used only by user with "Admin" role.
          * This method edits movie order depending on form content. 
          * Method saves changes in database.
-         * \param order it's order with id from argument.
+         * \param id of order.
          * \return model on "Index" view.
          */
         [Authorize(Roles = "Admin")]
@@ -310,6 +307,7 @@ namespace MvcMovie.Controllers
 
         //! Methode for checking is order exists.
         /*!
+         * \param id of order
          *  \return true if exists and false if it doesn't exists 
          */
         private bool OrderExists(int id)
@@ -319,6 +317,7 @@ namespace MvcMovie.Controllers
 
         //! Methode for checking is movie exists.
         /*!
+         * \param id of film
          *  \return true if exists and false if it doesn't exists 
          */
         private bool MovieExists(int id)

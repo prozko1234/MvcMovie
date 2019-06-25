@@ -209,7 +209,7 @@ Public Member Functions</h2></td></tr>
 <p>Action for geting "Delete" partial view. </p>
 <p>This method can be used only by user with "Admin" role. It gets id of film as argument and check is film exist. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">movie</td><td>film with id from argument. </td></tr>
+    <tr><td class="paramname">id</td><td>of film. </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,7 +236,7 @@ Public Member Functions</h2></td></tr>
 <p>Action for delete movie . </p>
 <p>This method can be used only by user with "Admin" role. It deletes selected film. Method saves changes in database. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">movie</td><td>film with id from argument. </td></tr>
+    <tr><td class="paramname">id</td><td>of film. </td></tr>
   </table>
   </dd>
 </dl>
@@ -264,7 +264,6 @@ Public Member Functions</h2></td></tr>
 <p>This method gets id of film from view and returns partial view with film's details. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>it is id of film. </td></tr>
-    <tr><td class="paramname">movie</td><td>object of film. </td></tr>
   </table>
   </dd>
 </dl>
@@ -291,7 +290,7 @@ Public Member Functions</h2></td></tr>
 <p>Action for geting "Edit" partial view. </p>
 <p>This method can be used only by user with "Admin" role. It gets id of film as argument and check is film exist. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">movie</td><td>film with id from argument. </td></tr>
+    <tr><td class="paramname">id</td><td>of film. </td></tr>
   </table>
   </dd>
 </dl>
@@ -326,7 +325,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Action for saving edited movie . </p>
-<p>This method can be used only by user with "Admin" role. It gets data from View's form, validate it and if everything is right method saves it in database. </p><dl class="section return"><dt>Returns</dt><dd>model to "Index" view. </dd></dl>
+<p>This method can be used only by user with "Admin" role. It gets data from View's form, validate it and if everything is right method saves it in database. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>of film. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>model to "Index" view. </dd></dl>
 
 </div>
 </div>
@@ -349,7 +354,7 @@ Public Member Functions</h2></td></tr>
 <p>Action for geting "EditOrder" partial view. </p>
 <p>This method can be used only by user with "Admin" role. It gets id of order as argument and check is order exist. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">order</td><td>order with id from argument. </td></tr>
+    <tr><td class="paramname">id</td><td>of order. </td></tr>
   </table>
   </dd>
 </dl>
@@ -386,7 +391,7 @@ Public Member Functions</h2></td></tr>
 <p>Action for editing order. </p>
 <p>This method can be used only by user with "Admin" role. This method edits movie order depending on form content. Method saves changes in database. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">order</td><td>it's order with id from argument. </td></tr>
+    <tr><td class="paramname">id</td><td>of order. </td></tr>
   </table>
   </dd>
 </dl>
@@ -410,13 +415,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Async Action for geting current user ID. </p>
-<p>It's HttpGet method that gets object of user that currentky logged on page. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">usr</td><td>current user object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>user's ID. </dd></dl>
+<p>It's HttpGet method that gets object of user that currentky logged on page. </p><dl class="section return"><dt>Returns</dt><dd>user's ID. </dd></dl>
 
 </div>
 </div>
@@ -436,14 +435,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Async Action for getting list of films and showing it. </p>
-<p>It's method that assign data list of films to model's object and return it to "Index" view. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">movies</td><td>contain list of films. </td></tr>
-    <tr><td class="paramname">movieGenreVM</td><td>model's object </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>model for "Index" view. </dd></dl>
+<p>It's method that assign data list of films to model's object and return it to "Index" view. </p><dl class="section return"><dt>Returns</dt><dd>model for "Index" view. </dd></dl>
 
 </div>
 </div>

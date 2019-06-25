@@ -30,8 +30,6 @@ namespace MvcMovie.Controllers
         //! Async Action for getting list of films and showing it.
         /*!
          * It's method that assign data list of films to model's object and return it to "Index" view. 
-         * \param movies contain list of films.
-         * \param movieGenreVM model's object
          * \return model for "Index" view.
          */
         public async Task<IActionResult> Index()
@@ -50,6 +48,7 @@ namespace MvcMovie.Controllers
         }
         //! Methode for checking is movie exists.
         /*!
+         * \param id of film
          *  \return true if exists and false if it doesn't exists 
          */
         public bool MovieExists(int id)

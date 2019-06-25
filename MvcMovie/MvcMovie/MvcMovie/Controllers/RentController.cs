@@ -32,7 +32,6 @@ namespace MvcMovie.Controllers
         //! Async Action for geting current user ID.
         /*!
          * It's HttpGet method that gets object of user that currentky logged on page. 
-         * \param usr current user object.
          * \return user's ID.
          */
         [HttpGet]
@@ -48,8 +47,7 @@ namespace MvcMovie.Controllers
         /*!
          * This action shows modal view to make movie order.
          * This method requires user to be logged in. 
-         * \param movies contain list of films.
-         * \param orDet model's object
+         * \param if of film
          * \return model for "Index" view.
          */
         [Authorize(Roles = "User,Admin")]
@@ -80,6 +78,7 @@ namespace MvcMovie.Controllers
         /*!
          * This method gets data from view's form and saves entity of rent in database.
          * As arguments gets OrderDetail object and has binded values of form to write it in object.
+         * \param orDet Order Detail object
          * \return redirects to "Index" view after finishing operation.
          */
         [Authorize(Roles = "User,Admin")]
@@ -99,10 +98,7 @@ namespace MvcMovie.Controllers
         }
         //! Async Action for getting list of orders made by logged in user and showing it.
         /*!
-         * It's method that assign data list of orders to model's object and return it to "MyRent" view. 
-         * \userId id of logged in user.
-         * \param orders1 list of orders made by logged in user
-         * \param rentVM model's object
+         * It's method that assign data list of orders to model's object and return it to "MyRent" view.
          * \return model for "MyRent" view.
          */
         public async Task<IActionResult> MyRent()
@@ -122,9 +118,6 @@ namespace MvcMovie.Controllers
         //! Async Action for getting list of orders made by all users and showing it.
         /*!
          * It's method that assign data list of orders made by all users to model's object and return it to "MyRent" view. 
-         * \userId id of logged in user.
-         * \param orders1 list of orders made by logged in user
-         * \param rentVM model's object
          * \return model for "MyRent" view.
          */
         [Authorize(Roles = "Admin")]
